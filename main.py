@@ -43,6 +43,5 @@ def main():
     extended = extend_list(argumented)
     print(*extended)
 
-
 if __name__ == "__main__":
     main()
