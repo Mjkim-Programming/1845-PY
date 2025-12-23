@@ -25,21 +25,25 @@ def argument_list(arr: list[int]) -> list[int]:
 
 def extend_list(arr: list[int]) -> list[Point]:
     arr2 : list[Point] = []
-    nmax = len(arr) - 2
+    nmax = len(arr) - 1
     for n in arr:
         if(n == 0):
             arr2.append(Point(0, True))
-        elif(n == nmax + 1):
+        elif(n == nmax):
             arr2.append(Point(n, False))
-        else:
+        elif(n < 0):
             arr2.append(Point(n, True))
             arr2.append(Point(n, False))
+        elif(n > 0):
+            arr2.append(Point(n, False))
+            arr2.append(Point(n, True))
     return arr2
 
 def main():
     print("Sorting signed permutation by reversals.")
-    test_list: list[int] = [-3, -1, 4, 5, 2]
+    test_list: list[int] = [-2, 3, 1]
     argumented = argument_list(test_list)
+    print(*argumented)
     extended = extend_list(argumented)
     print(*extended)
 
